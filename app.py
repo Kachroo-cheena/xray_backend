@@ -12,8 +12,17 @@ CORS(app)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_DIR = os.path.join(BASE_DIR, 'model')
 
-loaded_model = load_model("c:/Users/lenovo/OneDrive/Desktop/insightx_v1/X-ray-Image-Classification/xray_tryout/x-ray-body-part-classification/model/keras_model.h5", compile=False)
-class_names = open("c:/Users/lenovo/OneDrive/Desktop/insightx_v1/X-ray-Image-Classification/xray_tryout/x-ray-body-part-classification/model/labels.txt", 'r').readlines()
+np.set_printoptions(suppress=True)
+
+# Load the model
+BASE_DIR = os.path.dirname(os.getcwd())
+MODEL_DIR = os.path.join(BASE_DIR, 'model')
+
+loaded_model = load_model(os.path.join(MODEL_DIR, 'keras_model.h5'), compile=False)
+class_names = open(os.path.join(MODEL_DIR, 'labels.txt'), "r").readlines()
+
+# loaded_model = load_model("c:/Users/lenovo/OneDrive/Desktop/insightx_v1/X-ray-Image-Classification/xray_tryout/x-ray-body-part-classification/model/keras_model.h5", compile=False)
+# class_names = open("c:/Users/lenovo/OneDrive/Desktop/insightx_v1/X-ray-Image-Classification/xray_tryout/x-ray-body-part-classification/model/labels.txt", 'r').readlines()
 
 @app.route('/predict', methods=['POST'])
 def predict():
