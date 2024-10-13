@@ -64,6 +64,10 @@ def predict():
             'class_name': class_name.strip(),
             'confidence_score': float(confidence_score)
         })
+    return jsonify({
+            'class_name': 'this image is not an xray',
+            'confidence_score': 1
+        })
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
