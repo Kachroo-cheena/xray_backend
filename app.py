@@ -21,7 +21,7 @@ MODEL_DIR = os.path.join(BASE_DIR, 'model')
 # loaded_model = load_model(os.path.join(MODEL_DIR, 'keras_model.h5'), compile=False)
 # class_names = open(os.path.join(MODEL_DIR, 'labels.txt'), "r").readlines()
 
-xray_model = load_model("model/cnn_xray_classification.h5",compile=False)
+xray_model = load_model("model/cnn_xray_classification_13_10.h5",compile=False)
 loaded_model = load_model("model/keras_model.h5", compile=False)
 class_names = open("model/labels.txt", 'r').readlines()
 
